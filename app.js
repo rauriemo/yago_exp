@@ -7,6 +7,8 @@ var express = require('express')
   , io = require('socket.io').listen(server)
   , arDrone = require('ar-drone')
   , arDroneConstants = require('ar-drone/lib/constants')
+  // , nodeCopterClient = require('dronestream/dist/nodecopter-client')
+  // , nodeCopterStream = require('dronestream/dist/nodecopter-stream')
   ;
 
 //runs config on plugins
