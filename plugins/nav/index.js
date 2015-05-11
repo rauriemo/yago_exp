@@ -1,4 +1,5 @@
 var channel = 0;
+SPEED = 0.34
 
 console.log('in file')
 
@@ -12,10 +13,21 @@ function navigator(name, deps) {
       var _name = cmd.cmd.action;
       console.log(deps.client[cmd.cmd.action]);
       return deps.client[cmd.cmd.action]();
-      // return typeof deps.client[_name = cmd.cmd.action] === "function" ? deps.client[_name]() : void 0;
-      // return typeof deps.client[cmd.cmd.action];
-      });
     });
+
+    socket.on('/hover', function(cmd){
+      return deps.client[cmd.cmd.action]();
+    })
+
+    socket.on('/front', function(cmd) {
+      console.log(cmd.cmd.action);
+      var _name = cmd.cmd.action;
+      console.log(deps.client[cmd.cmd.action]);
+      return deps.client[cmd.cmd.action](SPEED);
+    });
+
+
+  });
 };
 
 module.exports = navigator;

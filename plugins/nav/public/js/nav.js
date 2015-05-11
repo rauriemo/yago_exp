@@ -5,12 +5,12 @@
   var keyMap = {
     // " " <-- empty string
     32 : {
-            ev: 'drone'
+            ev: 'drone',
             action: 'stop'
     },
     // T "takeoff"
     84 : {
-            ev: 'drone'
+            ev: 'drone',
             action: 'takeoff'
     },
     // L "land"
@@ -20,64 +20,64 @@
     },
     // Left arrow "turn counterclockwise"
     37 : {
-            ev: 'move'
+            ev: 'move',
             action: 'counterClockwise'
     },
     // Right arrow "turn clockwise"
     39 : {
-            ev: 'move'
+            ev: 'move',
             action: 'clockwise'
     },
     // Up arrow "move vertically up"
     38 : {
-            ev: 'move'
+            ev: 'move',
             action: 'up'
     },
     // Down arrow "move vertically down"
     40 : {
-            ev: 'move'
+            ev: 'move',
             action: 'down'
     },
     // W "move forward"
     87 : {
-            ev: 'move'
+            ev: 'move',
             action: 'front'
     },
     // S "move backward"
     83 : {
-            ev: 'move'
+            ev: 'move',
             action: 'back'
     },
     // A "move left"
     65: {
-            ev: 'mpve'
+            ev: 'move',
             action: 'left'
     },
     // D "move right"
     68: {
-            ev: 'move'
+            ev: 'move',
             action: 'right'
     },
     // T "flip forward"
-    84 : {
-            ev: 'animate'
-            action:
-    },
-    // G "flip backward"
-    71 : {
-            ev: 'animate'
-            action:
-    },
-    // H "flip right"
-    72 : {
-            ev: 'animate'
-            action:
-    },
-    // F  "flip left"
-    70 : {
-            ev: 'animate'
-            action:
-    },
+    // 84 : {
+    //         ev: 'animate'
+    //         action:
+    // },
+    // // G "flip backward"
+    // 71 : {
+    //         ev: 'animate'
+    //         action:
+    // },
+    // // H "flip right"
+    // 72 : {
+    //         ev: 'animate'
+    //         action:
+    // },
+    // // F  "flip left"
+    // 70 : {
+    //         ev: 'animate'
+    //         action:
+    // },
     // C "Change camera channel"
     67 : {
             ev: 'channel'
@@ -116,16 +116,26 @@
     ev.preventDefault();
     var key = ev.keyCode;
     var cmd = keyMap[key];
-    if (key == 76){
+    if (key == 84){
       console.log("im heeeeeere");
       this.socket.emit("/takeoff", {cmd})
+    }
+    else if(key == 87){
+      console.log("Moving forward");
+      this.socket.emit("/front",{cmd})
+    }else if(key == 76){
+      console.log("Landing");
+      this.socket.emit("/land",{cmd})
     }
   }
 
   Nav.prototype.keyUp = function keyUp(ev) {
     console.log("keyUp!!!!!!!")
     ev.preventDefault();
-    this.socket.emit("/hover")
+    var cmd = 'stop'
+    this.socket.emit("/hover", {cmd})
   }
+
+
 
 }(window, document, jQuery));
