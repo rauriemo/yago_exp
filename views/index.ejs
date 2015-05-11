@@ -5,13 +5,35 @@
     <meta name="viewport" content="width=device-width">
     <title><%= title %></title>
   </head>
+  <!--<script src="/node_modules/dronestream/dist/nodecopter-client.js"></script>
+  <script src="/node_modules/dronestream/dist/nodecopter-stream.js"></script>-->
   <script type="text/javascript" src="/components/jquery/jquery.js"></script>
-  <script type="text/javascript" src="/javascripts/jquery.fullscreen-min.js"></script>
+  <script type="text/javascript" src="/js/jquery.fullscreen-min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
   <% for(var i=0; i<scripts.length; i++) {%>
-  <script type="text/javascript" src="<%= scripts[i] %>"></script><% } %>
+  <script type="text/javascript" src="<%= scripts[i] %>"></script>
+  <% } %>
+  <!--<script type="text/javascript" src="/plugins/video-feed/public/js/index.js"></script>-->
 
   <body>
     <%= title %>
+    <div id="dronestream"></div>
+    <script type="text/javascript">
+    (function(window, document, $) {
+  console.log("inner index file")
+
+  var Video = function Video() {
+    console.log("video stream plugin loaded");
+
+    $('#dronestream').append('<div id="drone-feed"></div>');
+
+    videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
+      );
+  }
+
+  new Video;
+
+})(window, document, jQuery);
+</script>
   </body>
 </html>
