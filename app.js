@@ -54,8 +54,10 @@ app.get('/', function (req, res) {
 });
 
 //sets up required masks for drone
+// understand syntax of return 1
 function navdata_option_mask(c) {
-  return 1 << c;
+  return c;
+  // return 1 << c; appears unnecessary
 }
 
 // From the SDK.
