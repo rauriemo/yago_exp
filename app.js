@@ -135,7 +135,10 @@ function getFilter(ext) {
 
 config.plugins.forEach(function (plugin) {
     console.log("Loading " + plugin + " plugin.");
-
+    console.log("*****");
+    console.log(dir);
+    console.log("*****");
+    console.log(plugin);
     // Load the backend code
     require(path.join(dir, plugin))(plugin, deps);
 
