@@ -6,6 +6,7 @@ function navigator(name, deps) {
   console.log('in navigator');
   deps.io.sockets.on('connection', function(socket){
     console.log('in socket')
+
     socket.on('/takeoff', function(cmd) {
       console.log(cmd.cmd.action);
       var _name = cmd.cmd.action;
