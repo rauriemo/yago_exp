@@ -133,6 +133,7 @@ function getFilter(ext) {
     };
 }
 
+
 config.plugins.forEach(function (plugin) {
     console.log("Loading " + plugin + " plugin.");
     console.log("*****");
@@ -140,7 +141,9 @@ config.plugins.forEach(function (plugin) {
     console.log("*****");
     console.log(plugin);
     // Load the backend code
+    console.log(deps);
     require(path.join(dir, plugin))(plugin, deps);
+    // require('/Users/rfa/Desktop/DBC_Stuff/yago_xp/yago/plugins/nav/index.js')
 
     // Add the public assets to a static route
     if (fs.existsSync(assets = path.join(dir, plugin, 'public'))) {
