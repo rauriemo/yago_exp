@@ -73,6 +73,12 @@ function navigator(name, deps) {
       return deps.client[cmd.cmd.action](TURNINGSPEED);
     });
 
+    socket.on('/flip', function(cmd){
+      console.log(cmd.cmd.action);
+      console.log(deps.client[cmd.cmd.action]);
+      return deps.client[cmd.cmd.action](TURNINGSPEED);
+    });
+
 
 
   });

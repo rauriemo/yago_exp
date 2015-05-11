@@ -5,83 +5,68 @@
   var keyMap = {
     // " " <-- empty string
     32 : {
-            ev: 'drone',
-            action: 'stop'
+      action: 'stop'
     },
     // T "takeoff"
     84 : {
-            ev: 'drone',
-            action: 'takeoff'
+      action: 'takeoff'
     },
     // L "land"
     76 : {
-            ev: 'drone',
-            action: 'land'
+      action: 'land'
     },
     // Left arrow "turn counterclockwise"
     37 : {
-            ev: 'move',
-            action: 'counterClockwise'
+      action: 'counterClockwise'
     },
     // Right arrow "turn clockwise"
     39 : {
-            ev: 'move',
-            action: 'clockwise'
+      action: 'clockwise'
     },
     // Up arrow "move vertically up"
     38 : {
-            ev: 'move',
-            action: 'up'
+      action: 'up'
     },
     // Down arrow "move vertically down"
     40 : {
-            ev: 'move',
-            action: 'down'
+      action: 'down'
     },
     // W "move forward"
     87 : {
-            ev: 'move',
-            action: 'front'
+      action: 'front'
     },
     // S "move backward"
     83 : {
-            ev: 'move',
-            action: 'back'
+      action: 'back'
     },
     // A "move left"
     65: {
-            ev: 'move',
-            action: 'left'
+      action: 'left'
     },
     // D "move right"
     68: {
-            ev: 'move',
-            action: 'right'
+      action: 'right'
     },
-    // T "flip forward"
-    // 84 : {
-    //         ev: 'animate'
-    //         action:
-    // },
-    // // G "flip backward"
+    // Y "flip forward"
+    89 : {
+      action: 'flip'
+    },
+    // // G "flip left"
     // 71 : {
-    //         ev: 'animate'
-    //         action:
+    //action:
     // },
-    // // H "flip right"
+    // // H "flip backward"
     // 72 : {
-    //         ev: 'animate'
-    //         action:
+    //action:
     // },
-    // // F  "flip left"
-    // 70 : {
-    //         ev: 'animate'
-    //         action:
+    // // J  "flip right"
+    // 74 : {
+    //action:
     // },
     // C "Change camera channel"
-    67 : {
-            ev: 'channel'
-    }
+    // 67 : {
+    //         ev: 'channel'
+    // }
   }
 
   var Nav = function() {
@@ -148,6 +133,9 @@
     }else if(key == 37){
       console.log("Rotating left");
       this.socket.emit("/counterClockwise",{cmd})
+    }else if(key == 89){
+      console.log("Flipping forward");
+      this.socket.emit("/flip",{cmd})
     }
   }
 
