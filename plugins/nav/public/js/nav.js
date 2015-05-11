@@ -33,7 +33,7 @@
     // });
   }
 
-  // nav.listen();
+  nav.listen();
 
   Nav.prototype.keyDown = function keyDown(ev){
     console.log("keyDown");
