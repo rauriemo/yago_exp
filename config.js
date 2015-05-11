@@ -4,7 +4,7 @@ var config = {
         // , "video-stream"  // Display the video as a native h264 stream decoded in JS
           // , "hud"           // Display the artificial horizon, altimeter, compass, etc.
           // , "battery"       // Display a simple battery widget in the header bar
-          // , "pilot"         // Pilot the drone with the keyboard
+          "nav"         // Pilot the drone with the keyboard
           // , "blackbox"      // Experimental: Records all mision data (navData, raw video, PaVE headers, etc.)
         //, "replay"        // Experimental: Replay the data recorded by the blackbox
         ],
