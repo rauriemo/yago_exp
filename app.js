@@ -126,6 +126,7 @@ var deps = {
 
 
 // Load the plugins
+// understand more later
 var dir = path.join(__dirname, 'plugins');
 function getFilter(ext) {
     return function(filename) {
@@ -139,9 +140,9 @@ config.plugins.forEach(function (plugin) {
     console.log("*****");
     console.log(dir);
     console.log("*****");
-    console.log(plugin);
+    // console.log(plugin);
     // Load the backend code
-    console.log(deps);
+    // console.log(deps);
     require(path.join(dir, plugin))(plugin, deps);
     // require('/Users/rfa/Desktop/DBC_Stuff/yago_xp/yago/plugins/nav/index.js')
 
