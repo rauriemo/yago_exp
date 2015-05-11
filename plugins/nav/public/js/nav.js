@@ -104,9 +104,9 @@
       nav.keyDown(ev);
     });
 
-    // $(document).keyup(function(ev) {
-    //   nav.keyUp(ev);
-    // });
+    $(document).keyup(function(ev) {
+      nav.keyUp(ev);
+    });
   }
 
   nav.listen();
@@ -122,10 +122,32 @@
     }
     else if(key == 87){
       console.log("Moving forward");
+      ev.preventDefault();
       this.socket.emit("/front",{cmd})
     }else if(key == 76){
       console.log("Landing");
       this.socket.emit("/land",{cmd})
+    }else if(key == 83){
+      console.log("Moving backward");
+      this.socket.emit("/back",{cmd})
+    }else if(key == 65){
+      console.log("Moving left");
+      this.socket.emit("/left",{cmd})
+    }else if(key == 68){
+      console.log("Moving right");
+      this.socket.emit("/right",{cmd})
+    }else if(key == 38){
+      console.log("Moving up");
+      this.socket.emit("/up",{cmd})
+    }else if(key == 40){
+      console.log("Moving down");
+      this.socket.emit("/down",{cmd})
+    }else if(key == 39){
+      console.log("Rotating right");
+      this.socket.emit("/clockwise",{cmd})
+    }else if(key == 37){
+      console.log("Rotating left");
+      this.socket.emit("/counterClockwise",{cmd})
     }
   }
 
