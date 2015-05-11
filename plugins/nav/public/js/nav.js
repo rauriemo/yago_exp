@@ -72,11 +72,11 @@
   var Nav = function() {
     console.log("constructor");
     this.socket = io.connect('http://localhost:3000');
-    this.speed = 0;
-    this.moving = false;
-    this.keys = {};
+    // this.speed = 0;
+    // this.moving = false;
+    // this.keys = {};
 
-    var self = this;
+    // var self = this;
     // setInterval(function(){self.sendCommands()},100);
   };
 
