@@ -1,26 +1,26 @@
-var express = require('express');
-var path = require('path');
-var app = express();
-var server = require("http").createServer(app);
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var arDrone = require('ar-drone');
-var arDroneConstants = require ('ar-drone/lib/constants');
-var io = require('socket.io').listen(server);
+// sets up required libraries
+var express = require('express')
+  , app = express()
+  , fs = require('fs')
+  , path = require('path')
+  , server = require("http").createServer(app)
+  , io = require('socket.io').listen(server)
+  , arDrone = require('ar-drone')
+  , arDroneConstants = require('ar-drone/lib/constants')
+  ;
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
+//runs config on plugins
+var config = require('./config');
 
-try {
-    var config = require('./config');
-} catch (err) {
-    console.log("Missing or corrupted config file. Have a look at config.js.example if you need an example.");
-    process.exit(-1);
-}
+//sets env var for drone ip
+var drone_ip = process.env.DEFAULT_DRONE_IP || '192.168.1.1';
 
+// Keep track of plugins js and css to load them in the view
+var scripts = []
+  , styles = []
+  ;
+
+// sets app ports, view defaults, bower components
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
@@ -32,80 +32,35 @@ app.configure(function () {
     app.use("/components", express.static(path.join(__dirname, 'bower_components')));
 });
 
+
 app.configure('development', function () {
     app.use(express.errorHandler());
     app.locals.pretty = true;
 });
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use('/', routes);
-app.use('/users', users);
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
-
-// error handlers
-
-// development error handler
-// will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
-// production error handler
-// no stacktraces leaked to user
-app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
-
-var scripts = []
-  , styles = []
-  ;
-
+//main route
 app.get('/', function (req, res) {
   console.log()
   // console.log(scripts)
   // console.log(styles)
     res.render('index', {
-        title: 'here yagoooooooo, mean bean stack!'
+        title: 'YAGOOOOO!!'
         ,scripts: scripts
         ,styles: styles
         ,options: {
-        //   keyboard: config.keyboard
+          keyboard: config.keyboard
         }
     });
 });
 
-// Override the drone ip using an environment variable,
-// using the same convention as node-ar-drone
-var drone_ip = process.env.DEFAULT_DRONE_IP || '192.168.1.1';
-
+//sets up required masks for drone
+// understand syntax of return 1
 function navdata_option_mask(c) {
-  return 1 << c;
+  return c;
+  // return 1 << c; appears unnecessary
 }
 
-// From the SDK. Study SDK documentation later
+// From the SDK.
 var navdata_options = (
     navdata_option_mask(arDroneConstants.options.DEMO)
   | navdata_option_mask(arDroneConstants.options.VISION_DETECT)
@@ -121,8 +76,8 @@ client.config('general:navdata_options', navdata_options);
 
 // Add a handler on navdata updates
 var latestNavData;
-client.on('navdata', function (data) {
-    latestNavData = data;
+client.on('navdata', function (d) {
+    latestNavData = d;
 });
 
 // Signal landed and flying events.
@@ -149,10 +104,9 @@ client.on('flying', function() {
 
 // Process new websocket connection
 io.set('log level', 1);
-
 io.sockets.on('connection', function (socket) {
-  console.log(socket);
   socket.emit('event', { message: 'Welcome to cockpit :-)' });
+  console.log('a user connected');
 });
 
 // Schedule a time to push navdata updates
@@ -170,6 +124,7 @@ var deps = {
   , config: config
 };
 
+
 // Load the plugins
 var dir = path.join(__dirname, 'plugins');
 function getFilter(ext) {
@@ -178,11 +133,17 @@ function getFilter(ext) {
     };
 }
 
+
 config.plugins.forEach(function (plugin) {
     console.log("Loading " + plugin + " plugin.");
-
+    console.log("*****");
+    console.log(dir);
+    console.log("*****");
+    console.log(plugin);
     // Load the backend code
+    console.log(deps);
     require(path.join(dir, plugin))(plugin, deps);
+    // require('/Users/rfa/Desktop/DBC_Stuff/yago_xp/yago/plugins/nav/index.js')
 
     // Add the public assets to a static route
     if (fs.existsSync(assets = path.join(dir, plugin, 'public'))) {
@@ -208,4 +169,3 @@ server.listen(app.get('port'), function() {
   console.log('Running on http://localhost:' + app.get('port'));
 });
 
-module.exports = app;
