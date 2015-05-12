@@ -13,7 +13,11 @@
     "ejs": "~0.8.3",
     "express": "3.0.x",
     "line-reader": "~0.2.3",
-    "socket.io": "^0.9.17"
+    "socket.io": "^0.9.17",
+    "opencv": "3.0.0",
+    "node-pid-controller": "0.0.3",
+    "events": "1.0.2",
+    "async": "0.2.9"
   },
   "description": "parrot ar drone browser control",
   "main": "app.js",

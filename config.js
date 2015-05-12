@@ -6,7 +6,8 @@ var config = {
           // , "battery"       // Display a simple battery widget in the header bar
           "nav",
           "video-feed",         // Pilot the drone with the keyboard
-          "flight-recorder"
+          "flight-recorder",
+          "face-rec"
           // , "blackbox"      // Experimental: Records all mision data (navData, raw video, PaVE headers, etc.)
         //, "replay"        // Experimental: Replay the data recorded by the blackbox
         ],
