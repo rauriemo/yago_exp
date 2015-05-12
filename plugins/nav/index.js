@@ -1,5 +1,5 @@
 var channel = 0;
-SPEED = 0.04
+SPEED = 0.5
 TURNINGSPEED = 0.6
 
 console.log('in file')
@@ -73,10 +73,10 @@ function navigator(name, deps) {
       return deps.client[cmd.cmd.action](TURNINGSPEED);
     });
 
-    socket.on('/flip', function(cmd){
+    socket.on('/flipAhead', function(cmd){
       console.log(cmd.cmd.action);
-      console.log(deps.client[cmd.cmd.action]);
-      return deps.client[cmd.cmd.action](TURNINGSPEED);
+      console.log(deps.client.animate(cmd.cmd.action, 100));
+      return deps.client.animate(cmd.cmd.action, 100);
     });
 
 

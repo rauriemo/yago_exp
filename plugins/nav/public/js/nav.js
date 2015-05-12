@@ -48,25 +48,9 @@
       action: 'right'
     },
     // Y "flip forward"
-    89 : {
-      action: 'flip'
+    70 : {
+      action: 'flipAhead'
     },
-    // // G "flip left"
-    // 71 : {
-    //action:
-    // },
-    // // H "flip backward"
-    // 72 : {
-    //action:
-    // },
-    // // J  "flip right"
-    // 74 : {
-    //action:
-    // },
-    // C "Change camera channel"
-    // 67 : {
-    //         ev: 'channel'
-    // }
   }
 
   var Nav = function() {
@@ -133,9 +117,9 @@
     }else if(key == 37){
       console.log("Rotating left");
       this.socket.emit("/counterClockwise",{cmd})
-    }else if(key == 89){
+    }else if(key == 70){
       console.log("Flipping forward");
-      this.socket.emit("/flip",{cmd})
+      this.socket.emit("/flipAhead",{cmd})
     }
   }
 
@@ -143,7 +127,7 @@
     console.log("keyUp!!!!!!!")
     ev.preventDefault();
     var cmd = 'stop'
-    this.socket.emit("/hover", {cmd})
+      this.socket.emit("/hover", {cmd})
   }
 
 
