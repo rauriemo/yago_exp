@@ -3,15 +3,16 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width">
-    <% for(var i=0; i<styles.length; i++) {%>
-    <link rel="stylesheet" href="<%= styles[i] %>"></link>
-    <% } %>
-    <link rel='icon' href='./images/parrot-16x16.png' type='image/png' size="16x16">
     <title><%= title %></title>
+    <% for(var i=0; i<styles.length; i++) {%>
+    <link rel="stylesheet" href="<%= styles[i] %>">
+    <% } %>
+    <link rel="stylesheet" href="/stylesheets/fonts.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel='icon' href='./images/parrot-16x16.png' type='image/png' size="16x16">
   </head>
   <!--<script src="/node_modules/dronestream/dist/nodecopter-client.js"></script>
   <script src="/node_modules/dronestream/dist/nodecopter-stream.js"></script>-->
-  <script type="text/javascript" src="/js/index.js"> </script>
   <script type="text/javascript" src="/components/jquery/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery.fullscreen-min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
@@ -42,7 +43,27 @@
 
           })(window, document, jQuery);
         </script>
-      <link rel="stylesheet" href="../plugins/video-feed/public/css/index.css">
+
+      <script type="text/javascript" src="/js/index.js"> </script>
+    </div>
+    <div id="commands">
+      <p>Commands</p>
+      <ul>
+        <li>T -- Takeoff</li>
+        <li>L -- Land</li>
+        <li>W -- Forward</li>
+        <li>S -- Backward</li>
+        <li>A -- Left</li>
+        <li>D -- Right</li>
+        <li>&#8593; -- Up</li>
+        <li>&#8595; -- Down</li>
+        <li>&#8594; -- Turn Right</li>
+        <li>&#8592; -- Turn Left</li>
+        <li>F -- Flip Forward</li>
+        <li>G -- Flip Backward</li>
+        <li>C -- Flip Left</li>
+        <li>V -- Flip Right</li>
+      </ul>
     </div>
   </body>
 </html>

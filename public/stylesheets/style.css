@@ -1,8 +1,56 @@
 body {
-  padding: 50px;
+  /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#dronestream {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+
+canvas {
+  height: 100vh!important;
+  width: 100vw!important;
+  position: relative!important;
+}
+
+.debugger {
+  border: 1px solid red;
+}
+
+#drone-feed {
+
+}
+
+#yago-drop-down {
+  margin: 0 auto;
+  width: 50%;
+  height: 15em;
+  border: 1px solid white;
+}
+
+#commands {
+  bottom: 0;
+  width: 25%;
+  height: 22em;
+  border: 1px solid white;
+  position: absolute;
+}
+
+#commands ul {
+  list-style-type: none;
+  padding-left: 2em;
+}
+
+#commands p {
+  text-align: center;
 }
