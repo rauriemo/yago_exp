@@ -7,6 +7,7 @@ var express = require('express')
   , io = require('socket.io').listen(server)
   , arDrone = require('ar-drone')
   , arDroneConstants = require('ar-drone/lib/constants')
+  , favicon = require('serve-favicon')
   // , nodeCopterClient = require('dronestream/dist/nodecopter-client')
   // , nodeCopterStream = require('dronestream/dist/nodecopter-stream')
   ;
@@ -27,7 +28,7 @@ app.configure(function () {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs', { pretty: true });
-    app.use(express.favicon());
+    app.use(favicon('./public/images/parrot-16x16.png'));
     app.use(express.logger('dev'));
     app.use(app.router);
     app.use(express.static(path.join(__dirname, 'public')));
