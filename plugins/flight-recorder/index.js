@@ -7,6 +7,7 @@ var client,
   io,
   config,
   navStream,
+  paveStream,
   motionStream,
   videoStream,
   paveStream,
@@ -21,6 +22,7 @@ var client,
     //"deps.io" probably unnecessary?
     deps.io.sockets.on('connection', function (socket){
       socket.on('/flightRecorder/start', function(cmd){
+        console.log("Inside start")
         _start();
       });
       socket.on('/flightRecorder/stop', function(cmd) {
@@ -42,8 +44,8 @@ var client,
   function _start() {
     if (recording) return;
     console.log("Recording has started")
-    if (config && config.flight-recorder && config.flightrecorder.path) {
-      var root = config.blackbox.path
+    if (config && config.flightrecorder && config.flightrecorder.path) {
+      var root = config.flightrecorder.path
     } else {
         var root = ".";
     }
@@ -51,6 +53,7 @@ var client,
     var folder = df(new Date(), "yyyy-mm-dd_hh_MM-ss");
     fs.mkdir(path.join(root,folder), function(){
       videoStream = fs.createWriteStream(path.join(root,folder,'video.h264'));
+      paveStream = fs.createWriteStream(path.join(root, folder, 'paveHeaders.txt'));
       recording = true;
     })
   }
@@ -61,6 +64,7 @@ var client,
     console.log("Stopped recording navigation data");
     recording = false;
     videoStream.end();
+    paveStream.end();
   }
 
   function _writeVideo(data) {
