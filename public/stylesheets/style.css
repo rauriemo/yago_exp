@@ -36,11 +36,18 @@ canvas {
   width: 50%;
   height: 15em;
   border: 1px solid white;
+  background-color: white;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
 }
 
 #yago-drop-down p {
   font-family: "Sonsie One", cursive;
   font-size: 72px;
+  color: #2E5C8A;
+  padding-top: 0;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 #commands {
