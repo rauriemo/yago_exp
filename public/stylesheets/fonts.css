@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Sonsie One';
-  font-style: italic;
+  font-style: cursive;
   font-weight: 400;
-  src: url(/fonts/Audiowide/Audiowide-Regular.ttf);
+  src: local('Sonsie One'), local('Sonsie-One'), url(/fonts/Sonsie_One/SonsieOne-Regular.ttf);
 }

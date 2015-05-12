@@ -1,6 +1,6 @@
 body {
   /*padding: 50px;*/
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Sonsie One", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -36,6 +36,11 @@ canvas {
   width: 50%;
   height: 15em;
   border: 1px solid white;
+}
+
+#yago-drop-down p {
+  font-family: "Sonsie One", cursive;
+  font-size: 72px;
 }
 
 #commands {
