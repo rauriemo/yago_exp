@@ -51,6 +51,15 @@
     70 : {
       action: 'flipAhead'
     },
+    71 : {
+      action: 'flipBehind'
+    },
+    67 : {
+      action: 'flipLeft'
+    },
+    86 : {
+      action: 'flipRight'
+    },
   }
 
   var Nav = function() {
@@ -120,6 +129,15 @@
     }else if(key == 70){
       console.log("Flipping forward");
       this.socket.emit("/flipAhead",{cmd})
+    }else if(key == 71){
+      console.log("Flipping back");
+      this.socket.emit("/flipBehind",{cmd})
+    }else if(key == 67){
+      console.log("Flipping left");
+      this.socket.emit("/flipLeft",{cmd})
+    }else if(key == 86){
+      console.log("Flipping right");
+      this.socket.emit("/flipRight",{cmd})
     }
   }
 

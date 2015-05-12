@@ -79,7 +79,23 @@ function navigator(name, deps) {
       return deps.client.animate(cmd.cmd.action, 100);
     });
 
+    socket.on('/flipBehind', function(cmd){
+      console.log(cmd.cmd.action);
+      console.log(deps.client.animate(cmd.cmd.action, 100));
+      return deps.client.animate(cmd.cmd.action, 100);
+    });
 
+    socket.on('/flipLeft', function(cmd){
+      console.log(cmd.cmd.action);
+      console.log(deps.client.animate(cmd.cmd.action, 100));
+      return deps.client.animate(cmd.cmd.action, 100);
+    });
+
+    socket.on('/flipRight', function(cmd){
+      console.log(cmd.cmd.action);
+      console.log(deps.client.animate(cmd.cmd.action, 100));
+      return deps.client.animate(cmd.cmd.action, 100);
+    });
 
   });
 };
