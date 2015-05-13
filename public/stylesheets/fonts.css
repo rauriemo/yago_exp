@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Sonsie One';
+  font-style: cursive;
+  font-weight: 400;
+  src: local('Sonsie One'), local('Sonsie-One'), url(/fonts/Sonsie_One/SonsieOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Black Ops One';
+  font-style: cursive;
+  font-weight: 400;
+  src: local('Black Ops One'), local('BlackOpsOne'), url(/fonts/Black_Ops_One/BlackOpsOne-Regular.ttf);
+}

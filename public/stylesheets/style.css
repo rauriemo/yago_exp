@@ -1,8 +1,75 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /*padding: 50px;*/
+  font: 14px 'Black Ops One', Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+#dronestream {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  overflow: hidden;
+}
+
+canvas {
+  height: 100vh!important;
+  width: 100vw!important;
+  position: relative!important;
+}
+
+.debugger {
+  border: 1px solid red;
+}
+
+#drone-feed {
+
+}
+
+#yago-drop-down {
+  margin: 0 auto;
+  width: 50%;
+  height: 15em;
+  border: 1px solid white;
+  background-color: white;
+  background: rgba(255,255,255,0.3);
+  display: flex;
+  justify-content: center;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+}
+
+#yago-drop-down p {
+  font-family: "Sonsie One", cursive;
+  font-size: 72px;
+  color: #2E5C8A;
+  padding-top: 0;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+#commands {
+  font-family: "Black Ops One", cursive;
+  text-shadow: -0.3px 0 white, 0 0.3px white, 0.3px 0 white, 0 -0.3px white;
+  bottom: 0;
+  width: 17%;
+  height: 25em;
+  border: 1px solid white;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-top-right-radius: 1em;
+}
+
+#commands ul {
+  list-style-type: none;
+  padding-left: 2.5em;
+}
+
+#commands p {
+  text-align: center;
+  font-size: 1.5em;
 }
