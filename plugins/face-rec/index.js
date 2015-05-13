@@ -5,10 +5,11 @@ var EventEmitter = new Events.EventEmitter();
 var async = require('async');
 var DT = 150;
 var lastPNG;
+var path = require('path');
 var tracking = false;
 var debug = true;
 var processingImage = false;
-var face_cascade = new cv.CascadeClassify(path.join(__dirname, 'node_modules', 'opencv', 'data', 'haarcascade_frontalface_alt2.xml'));
+// var face_cascade = new cv.CascadeClassify(path.join(__dirname,'node_modules','opencv','data','haarcascade_frontalface_alt2.xml'));
 
 var ver_control = new Controller(0.3, 0.01, 0.1);
 var hor_control = new Controller(0.4, 0.01, 0.1);

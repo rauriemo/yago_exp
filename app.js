@@ -12,6 +12,7 @@ var express = require('express')
   , Controller = require('node-pid-controller')
   , events = require('events')
   , EventEmitter = new events.EventEmitter()
+  , face_cascade = new cv.CascadeClassifier(path.join(__dirname,'node_modules','opencv','data','haarcascade_frontalface_alt2.xml'));
   // , nodeCopterClient = require('dronestream/dist/nodecopter-client')
   // , nodeCopterStream = require('dronestream/dist/nodecopter-stream')
   ;

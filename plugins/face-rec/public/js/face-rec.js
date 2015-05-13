@@ -8,9 +8,9 @@
     this.tracking = false;
     this.socket = io.connect('http://localhost:3000')
 
-    $('#dronestream').append('<canvas id="faceRec" width="640" height="360"></canvas>')
-    $('#dronestream').append('<div id="faceRec-label" style="display:none;">Face Tracking ON</div>')
-    this.ctx = $('#dronestream').get(0).getContext('2d');
+    $('#drone-feed').append('<canvas id="faceRec" width="640" height="360"></canvas>')
+    $('#drone-feed').append('<div id="faceRec-label" style="display:none;">Face Tracking ON</div>')
+    this.ctx = $('#drone-feed').get(0).getContext('2d');
 
     var self = this;
 
