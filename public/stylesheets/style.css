@@ -1,6 +1,6 @@
 body {
   /*padding: 50px;*/
-  font: 14px "Sonsie One", Helvetica, Arial, sans-serif;
+  font: 14px 'Black Ops One', Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -40,6 +40,8 @@ canvas {
   background: rgba(255,255,255,0.3);
   display: flex;
   justify-content: center;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
 }
 
 #yago-drop-down p {
@@ -51,18 +53,22 @@ canvas {
 }
 
 #commands {
+  font-family: "Black Ops One", cursive;
   bottom: 0;
-  width: 25%;
-  height: 22em;
+  width: 17%;
+  height: 25em;
   border: 1px solid white;
   position: absolute;
+  background: rgba(255,255,255,0.3);
+  border-top-right-radius: 1em;
 }
 
 #commands ul {
   list-style-type: none;
-  padding-left: 2em;
+  padding-left: 2.5em;
 }
 
 #commands p {
   text-align: center;
+  font-size: 1.5em;
 }

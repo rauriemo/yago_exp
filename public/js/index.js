@@ -4,11 +4,11 @@ $(document).ready(function(){
     console.log("in the keydown")
     if (event.which == 84){
       console.log("pressed t")
-      $('#yago-drop-down').slideUp()
+      $('#yago-drop-down').slideUp("slow")
     }
     else if (event.which == 76) {
       console.log("pressed l")
-      $('#yago-drop-down').slideDown()
+      $('#yago-drop-down').slideDown("slow")
     }
     else if (event.which == 67) {
       console.log("pressed c")
