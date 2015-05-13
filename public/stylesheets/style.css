@@ -49,7 +49,7 @@ canvas {
 
 #commands {
   font-family: "Black Ops One", cursive;
-  text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
+  /*text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;*/
   bottom: 0;
   width: 17%;
   height: 25em;
@@ -61,14 +61,27 @@ canvas {
   overflow: hidden;
 }
 
+p {
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+
+}
+
 #commands ul {
   list-style-type: none;
-  padding-left: 2.5em;
+  padding-left: 2em;
+  padding-right: 1.5em;
+}
+
+#commands li {
+  padding-left: 5%;
 }
 
 #commands p {
+  margin-top: 0.5em;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
+  text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
 }
 
 #command-placeholder {
@@ -118,11 +131,13 @@ canvas {
     animation: blink 1s steps(5, start) infinite;
     -webkit-animation: blink 1s steps(5, start) infinite;
   }
+
   @keyframes blink {
     to {
       visibility: hidden;
     }
   }
+
   @-webkit-keyframes blink {
     to {
       visibility: hidden;
