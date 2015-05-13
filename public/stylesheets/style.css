@@ -54,12 +54,13 @@ canvas {
 
 #commands {
   font-family: "Black Ops One", cursive;
+  text-shadow: -0.3px 0 white, 0 0.3px white, 0.3px 0 white, 0 -0.3px white;
   bottom: 0;
   width: 17%;
   height: 25em;
   border: 1px solid white;
   position: absolute;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   border-top-right-radius: 1em;
 }
 
