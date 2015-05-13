@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $('div.button').toggleClass('opacity-switch');
+  $('#command-placeholder').toggleClass('opacity-switch')
   console.log("in the index.js file")
   $('body').keydown(function(event){
     console.log("in the keydown")
@@ -15,6 +16,7 @@ $(document).ready(function(){
     else if (event.which == 67) {
       console.log("pressed c")
       $('#commands').slideToggle()
+      $('#command-placeholder').toggleClass('opacity-switch')
     }
     else if (event.which == 82) {
       console.log("pressed r")
