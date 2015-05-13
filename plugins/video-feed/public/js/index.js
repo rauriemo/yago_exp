@@ -1,15 +1,15 @@
-// (function(window, document, $) {
-//   console.log("inner index file")
+(function(window, document, $) {
+  console.log("inner index file")
 
-//   var Video = function Video() {
-//     console.log("video stream plugin loaded");
+  var Video = function Video(cockpit) {
+    console.log("video stream plugin loaded");
 
-//     $('#dronestream').append('<div id="drone-feed"></div>');
+    $('#dronestream').append('<div id="drone-feed"></div>');
 
-//     videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
-//       );
-//   }
+    videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
+      );
+  }
 
-//   new Video;
+window.Cockpit.plugins.push(Video);
 
-// })(window, document, jQuery);
+})(window, document, jQuery);

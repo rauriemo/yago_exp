@@ -23,7 +23,6 @@
                 });
             }
         });
-
         // Initial draw
         this.draw();
     };

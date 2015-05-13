@@ -32,7 +32,6 @@
     this.socket.emit("/flightRecorder/" + cmd, {})
   };
 
-  var fr = new FlightRecorder();
-  fr.listen();
+  window.Cockpit.plugins.push(FlightRecorder);
 
 }(window, document));

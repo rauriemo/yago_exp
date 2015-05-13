@@ -71,9 +71,8 @@
 
     // var self = this;
     // setInterval(function(){self.sendCommands()},100);
+    this.listen()
   };
-
-  nav = new Nav();
 
   Nav.prototype.listen = function listen() {
     console.log("listen")
@@ -149,5 +148,6 @@
   }
 
 
+window.Cockpit.plugins.push(Nav);
 
 }(window, document, jQuery));

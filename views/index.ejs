@@ -59,23 +59,8 @@
       <div class="record control"> </div>
     </div>
      <script type="text/javascript">
-          (function(window, document, $) {
-            console.log("inner index file")
-
-            var Video = function Video() {
-            console.log("video stream plugin loaded");
-
-            $('#dronestream').append('<div id="drone-feed"></div>');
-
-            videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
-              );
-            }
-
-            new Video;
-            var cockpit = new Cockpit();
-
-          })(window, document, jQuery);
-        </script>
+        var cockpit = new Cockpit();
+    </script>
   </body>
 </html>
 
