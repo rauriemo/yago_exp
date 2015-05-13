@@ -1,6 +1,7 @@
 body {
   /*padding: 50px;*/
-  font: 14px 'Black Ops One', Helvetica, Arial, sans-serif;
+  font: 14px Helvetica, Arial, sans-serif;
+  /*display: flex;*/
 }
 
 a {
@@ -54,14 +55,16 @@ canvas {
 
 #commands {
   font-family: "Black Ops One", cursive;
-  text-shadow: -0.3px 0 white, 0 0.3px white, 0.3px 0 white, 0 -0.3px white;
+  text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
   bottom: 0;
   width: 17%;
   height: 25em;
+  max-width: 15em;
   border: 1px solid white;
   position: absolute;
   background: rgba(255, 255, 255, 0.3);
   border-top-right-radius: 1em;
+  overflow: hidden;
 }
 
 #commands ul {
@@ -78,4 +81,57 @@ canvas {
   bottom: 0;
   left: 0;
   position: fixed;
+  /*text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;*/
+  font-size: 1.5em;
+  border: 1px solid white;
+/*  background: rgba(255, 255, 255, 0.3);*/
+  border-top-right-radius: 1em;
+}
+
+#command-placeholder p {
+  padding: 0;
+}
+
+.button {
+  position: fixed;
+  border-radius:50%;
+  width:5em;
+  height:5em;
+  border:0.2em hsla(360, 80%, 50%, 0.8) solid;
+  margin:0.5em;
+  display:inline-block;
+  float: right;
+  bottom: 0;
+  right: 0;
+}
+
+.opacity-off {
+  opacity: 0;
+}
+
+.circle {
+  position:absolute;
+  top:5%;
+  left:5%;
+  border-radius:50%;
+  width:90%;
+  height:90%;
+  display:block;
+  background-color:hsla(360, 80%, 50%, 0.8);
+  border:0;
+}
+
+.control {
+  position:absolute;
+  top:42.5%;
+  left:42.5%;
+  width:15%;
+  height:15%;
+  display:block;
+  background-color:white;
+  box-shadow: inset 0px 1px 3px 0px black;
+}
+
+.record {
+  border-radius:50%;
 }
