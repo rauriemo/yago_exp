@@ -1,7 +1,5 @@
 body {
-  /*padding: 50px;*/
   font: 14px Helvetica, Arial, sans-serif;
-  /*display: flex;*/
 }
 
 a {
@@ -26,10 +24,6 @@ canvas {
 
 .debugger {
   border: 0px solid red;
-}
-
-#drone-feed {
-
 }
 
 #yago-drop-down {
@@ -94,13 +88,11 @@ canvas {
 
 .button {
   position: fixed;
-  border-radius:50%;
-  width:5em;
-  height:5em;
-  border:0.2em hsla(360, 80%, 50%, 0.8) solid;
-  margin:0.5em;
-  display:inline-block;
-  float: right;
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+  border: 1em hsla(0, 0%, 55%, 0.8) solid;
+  margin: 0.2em;
   bottom: 0;
   right: 0;
 }
@@ -110,26 +102,12 @@ canvas {
 }
 
 .circle {
-  position:absolute;
-  top:5%;
-  left:5%;
-  border-radius:50%;
-  width:90%;
-  height:90%;
-  display:block;
-  background-color:hsla(360, 80%, 50%, 0.8);
-  border:0;
-}
-
-.control {
-  position:absolute;
-  top:42.5%;
-  left:42.5%;
-  width:15%;
-  height:15%;
-  display:block;
-  background-color:white;
-  box-shadow: inset 0px 1px 3px 0px black;
+  position: absolute;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(360, 80%, 50%, 0.8);
+  border: 1px solid black;
 }
 
 .record {
