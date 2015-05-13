@@ -1,6 +1,6 @@
 body {
   /*padding: 50px;*/
-  font: 14px 'Black Ops One', Helvetica, Arial, sans-serif;
+  font: 14px Helvetica, Arial, sans-serif;
   /*display: flex;*/
 }
 
@@ -59,6 +59,7 @@ canvas {
   bottom: 0;
   width: 17%;
   height: 25em;
+  max-width: 15em;
   border: 1px solid white;
   position: absolute;
   background: rgba(255, 255, 255, 0.3);
@@ -80,6 +81,15 @@ canvas {
   bottom: 0;
   left: 0;
   position: fixed;
+  /*text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;*/
+  font-size: 1.5em;
+  border: 1px solid white;
+/*  background: rgba(255, 255, 255, 0.3);*/
+  border-top-right-radius: 1em;
+}
+
+#command-placeholder p {
+  padding: 0;
 }
 
 .button {
@@ -95,7 +105,7 @@ canvas {
   right: 0;
 }
 
-.opacity-switch {
+.opacity-off {
   opacity: 0;
 }
 
