@@ -70,6 +70,10 @@ canvas {
   border-top-right-radius: 1em;
   width: 18%;
   max-width: 18em;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  font-weight: bolder;
+
 }
 
 p {
@@ -92,11 +96,6 @@ p {
   text-align: center;
   font-size: 2em;
   text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
-}
-
-
-#command-placeholder p {
-  /*width: 17%;*/
 }
 
 .button {
