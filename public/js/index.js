@@ -54,6 +54,13 @@ $(document).ready(function(){
     })
   }
 
+  // $('#videos-link').on('click', function() {
+  //   console.log('clicked videos button')
+  //   $.get('/tmp', function() {
+  //     alert('Heyyyyy!')
+  //   })
+  // })
+
 // function toggleAttr(el, attribute, vals) {
 //   if ($(el).attr(attribute) == vals[0]) {
 //     $(el).attr(attribute, vals[1])

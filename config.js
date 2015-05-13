@@ -12,7 +12,7 @@ var config = {
         ],
 
         flightrecorder: {
-          path: "./videos"
+          path: "/videos"
         }
 
         // Config for pilot plugin
