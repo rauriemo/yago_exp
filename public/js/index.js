@@ -8,14 +8,18 @@ $(document).ready(function(){
       console.log("pressed t")
       $('#yago-drop-down').slideUp("slow");
       $('#commands').slideUp();
+      $('#command-placeholder').removeClass('opacity-switch');
     }
     else if (event.which == 76) {
       console.log("pressed l")
-      $('#yago-drop-down').slideDown("slow")
+      $('#yago-drop-down').slideDown("slow");
+      $('#commands').slideUp();
+      $('#command-placeholder').removeClass('opacity-switch');
     }
     else if (event.which == 67) {
       console.log("pressed c")
       $('#commands').slideToggle()
+
       $('#command-placeholder').toggleClass('opacity-switch')
     }
     else if (event.which == 82) {
