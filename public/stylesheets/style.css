@@ -73,7 +73,8 @@ canvas {
 
 #commands p {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
+  text-shadow: -0.3px 0 white, 0 0.3px white, 0.3px 0 white, 0 -0.3px white;
 }
 
 #command-placeholder {
