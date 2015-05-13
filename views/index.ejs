@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel='icon' href='./images/parrotlogo.png' type='image/png' size="16x16">
   </head>
-  <!--<script src="/node_modules/dronestream/dist/nodecopter-client.js"></script>
-  <script src="/node_modules/dronestream/dist/nodecopter-stream.js"></script>-->
+  <script type="text/javascript" src="/js/initializer.js"></script>
   <script type="text/javascript" src="/components/jquery/jquery.js"></script>
   <script type="text/javascript" src="/js/jquery.fullscreen-min.js"></script>
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
@@ -22,28 +21,12 @@
   <!--<script type="text/javascript" src="/plugins/video-feed/public/js/index.js"></script>-->
 
   <body>
+    <div class="header-container"></div>
     <div id="yago-drop-down">
       <img src="/images/parrotlogo.png" alt="yagoparrot">
       <p>YAGO</p>
     </div>
     <div id="dronestream" class="debugger">
-        <script type="text/javascript">
-          (function(window, document, $) {
-            console.log("inner index file")
-
-            var Video = function Video() {
-            console.log("video stream plugin loaded");
-
-            $('#dronestream').append('<div id="drone-feed"></div>');
-
-            videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
-              );
-            }
-
-            new Video;
-
-          })(window, document, jQuery);
-        </script>
 
       <script type="text/javascript" src="/js/index.js"> </script>
     </div>
@@ -75,6 +58,24 @@
       <div class="circle"> </div>
       <div class="record control"> </div>
     </div>
+     <script type="text/javascript">
+          (function(window, document, $) {
+            console.log("inner index file")
+
+            var Video = function Video() {
+            console.log("video stream plugin loaded");
+
+            $('#dronestream').append('<div id="drone-feed"></div>');
+
+            videostream = new NodecopterStream(document.getElementById("drone-feed"), {port: 3001}
+              );
+            }
+
+            new Video;
+            var cockpit = new Cockpit();
+
+          })(window, document, jQuery);
+        </script>
   </body>
 </html>
 
