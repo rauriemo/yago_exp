@@ -36,7 +36,7 @@ canvas {
   margin: 0 auto;
   width: 50%;
   height: 15em;
-  border: 1px solid white;
+  border: 1px solid #B82E00;
   background-color: white;
   background: rgba(255,255,255,0.3);
   display: flex;
@@ -59,7 +59,7 @@ canvas {
   bottom: 0;
   width: 17%;
   height: 25em;
-  border: 1px solid white;
+  border: 1px solid #B82E00;
   position: absolute;
   background: rgba(255, 255, 255, 0.3);
   border-top-right-radius: 1em;
