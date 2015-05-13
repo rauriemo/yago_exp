@@ -76,20 +76,14 @@ canvas {
   font-size: 1.5em;
 }
 
-#bottom-buttons {
-  display: flex;
-  justify-content: space-between;
-  /*position: absolute;*/
-}
-
 #command-placeholder {
   bottom: 0;
   left: 0;
-  /*position: fixed;*/
+  position: fixed;
 }
 
 .button {
-  position:relative;
+  position: fixed;
   border-radius:50%;
   width:5em;
   height:5em;
@@ -97,6 +91,12 @@ canvas {
   margin:0.5em;
   display:inline-block;
   float: right;
+  bottom: 0;
+  right: 0;
+}
+
+.opacity-switch {
+  opacity: 0;
 }
 
 .circle {
