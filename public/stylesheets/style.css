@@ -96,7 +96,7 @@ p {
 }
 
 #command-placeholder p {
-  padding: 0;
+  padding: .3em;
 }
 
 .button {
