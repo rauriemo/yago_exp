@@ -4,7 +4,8 @@ $(document).ready(function(){
     console.log("in the keydown")
     if (event.which == 84){
       console.log("pressed t")
-      $('#yago-drop-down').slideUp("slow")
+      $('#yago-drop-down').slideUp("slow");
+      $('#commands').slideUp();
     }
     else if (event.which == 76) {
       console.log("pressed l")

@@ -24,7 +24,7 @@ canvas {
 }
 
 .debugger {
-  border: 1px solid red;
+  border: 0px solid red;
 }
 
 #drone-feed {
@@ -72,4 +72,10 @@ canvas {
 #commands p {
   text-align: center;
   font-size: 1.5em;
+}
+
+#command-placeholder {
+  bottom: 0;
+  left: 0;
+  position: fixed;
 }
