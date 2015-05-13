@@ -54,10 +54,10 @@
     71 : {
       action: 'flipBehind'
     },
-    67 : {
+    86 : {
       action: 'flipLeft'
     },
-    86 : {
+    66 : {
       action: 'flipRight'
     },
   }
@@ -132,10 +132,10 @@
     }else if(key == 71){
       console.log("Flipping back");
       this.socket.emit("/flipBehind",{cmd})
-    }else if(key == 67){
+    }else if(key == 86){
       console.log("Flipping left");
       this.socket.emit("/flipLeft",{cmd})
-    }else if(key == 86){
+    }else if(key == 66){
       console.log("Flipping right");
       this.socket.emit("/flipRight",{cmd})
     }
