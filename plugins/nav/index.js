@@ -1,6 +1,7 @@
 var channel = 0;
 SPEED = 0.5
 TURNINGSPEED = 0.6
+TESTINGSPEED = 0.8
 
 console.log('in file')
 
@@ -64,7 +65,7 @@ function navigator(name, deps) {
     socket.on('/clockwise', function(cmd){
       console.log(cmd.cmd.action);
       console.log(deps.client[cmd.cmd.action]);
-      return deps.client[cmd.cmd.action](TURNINGSPEED);
+      return deps.client[cmd.cmd.action](TESTINGSPEED);
     });
 
     socket.on('/counterClockwise', function(cmd){
@@ -94,6 +95,18 @@ function navigator(name, deps) {
       console.log(cmd.cmd.action);
       return deps.client.animate(cmd.cmd.action, 100);
     });
+
+    // socket.on('/360video', function(cmd){
+    //   console.log(cmd.cmd.action);
+    //   console.log("Turning for 360")
+    //   return deps.client[cmd.cmd.action](TURNINGSPEED);
+    //   function stopMotionAndRecording(){
+    //     console.log("Stopping 360")
+    //     this.socket.emit("/hover", {cmd:'stop'});
+    //     this.socket.emit("/flightRecorder/" + "stop", {})
+    //   };
+    //   this.setTimeout(function(){stopMotionAndRecording()}, 5000);
+    // });
 
   });
 };
