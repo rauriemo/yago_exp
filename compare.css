@@ -1,20 +1,14 @@
 body {
-  /*padding: 50px;*/
   font: 1em Helvetica, Arial, sans-serif;
-  /*display: flex;*/
 }
 
 a {
   color: #00B7FF;
 }
 
-.yago-drop-down-container {
-  text-align: center;
-}
-
 #dronestream {
   position: absolute;
-  /*z-index: -1;*/
+  z-index: -1;
   top: 0px;
   left: 0px;
   bottom: 0px;
@@ -32,15 +26,8 @@ canvas {
   border: 0px solid red;
 }
 
-#drone-feed {
-  z-index: 1;
-
-}
-
 #yago-drop-down {
-  position: absolute;
-  z-index: 3;
-  left: 25%;
+  margin: 0 auto;
   width: 50%;
   height: 15em;
   border: 1px solid white;
@@ -53,8 +40,6 @@ canvas {
 }
 
 #yago-drop-down p {
-  top: 25%;
-  position: relative;
   font-family: "Sonsie One", cursive;
   font-size: 72px;
   color: #2E5C8A;
@@ -73,23 +58,6 @@ canvas {
   overflow: hidden;
   width: 15%;
   max-width: 15em;
-}
-
-#commands ul {
-  list-style-type: none;
-  /*padding-left: 2.5em;*/
-  margin: 0 auto;
-}
-
-#commands li {
-  padding-left: 5%;
-}
-
-#commands p {
-  margin-top: 0.5em;
-  text-align: center;
-  font-size: 2em;
-  text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
 }
 
 #command-placeholder {
@@ -111,8 +79,23 @@ p {
   -webkit-margin-after: 0em;
 }
 
-#command-placeholder p {
-  padding: 0;
+#commands ul {
+  list-style-type: none;
+/*  padding-left: 2em;
+  padding-right: 1.5em;
+*/
+margin: 0 auto;
+}
+
+#commands li {
+  padding-left: 5%;
+}
+
+#commands p {
+  margin-top: 0.5em;
+  text-align: center;
+  font-size: 2em;
+  text-shadow: -0.1px 0 white, 0 0.1px white, 0.1px 0 white, 0 -0.1px white;
 }
 
 .button {
