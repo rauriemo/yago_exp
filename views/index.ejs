@@ -19,44 +19,46 @@
   <% } %>
 
   <body>
-    <div class="yago-drop-down-container">
-      <div id="yago-drop-down">
-        <img src="/images/parrotlogo.png" alt="yagoparrot">
-        <p>YAGO</p>
-      </div>
-    </div>
-    <div class="dronestream-container">
-      <div id="dronestream" class="debugger">
-      </div>
-    </div>
+    <div class="body-container">
+        <div class="yago-drop-down-container">
+          <div id="yago-drop-down">
+            <img src="/images/parrotlogo.png" alt="yagoparrot">
+            <p>YAGO</p>
+          </div>
+        </div>
+        <div class="dronestream-container">
+          <div id="dronestream" class="debugger">
+          </div>
+        </div>
 
-    <div id="commands">
-      <p>Commands</p>
-      <ul>
-        <li>T - Takeoff</li>
-        <li>L - Land</li>
-        <li>W - Forward</li>
-        <li>S - Backward</li>
-        <li>A - Left</li>
-        <li>D - Right</li>
-        <li>&#8593; - Up</li>
-        <li>&#8595; - Down</li>
-        <li>&#8594; - Turn Right</li>
-        <li>&#8592; - Turn Left</li>
-        <li>F - Flip Forward</li>
-        <li>G - Flip Backward</li>
-        <li>V - Flip Left</li>
-        <li>B - Flip Right</li>
-        <li>R - Record</li>
-      </ul>
-    </div>
-    <div id="command-placeholder">
-      <p>"C" for Commands</p>
-    </div>
+        <div id="commands">
+          <p>Commands</p>
+          <ul>
+            <li>T - Takeoff</li>
+            <li>L - Land</li>
+            <li>W - Forward</li>
+            <li>S - Backward</li>
+            <li>A - Left</li>
+            <li>D - Right</li>
+            <li>&#8593; - Up</li>
+            <li>&#8595; - Down</li>
+            <li>&#8594; - Turn Right</li>
+            <li>&#8592; - Turn Left</li>
+            <li>F - Flip Forward</li>
+            <li>G - Flip Backward</li>
+            <li>V - Flip Left</li>
+            <li>B - Flip Right</li>
+            <li>R - Record</li>
+          </ul>
+        </div>
+        <div id="command-placeholder">
+          <p>"C" for Commands</p>
+        </div>
 
-    <div class="button">
-      <div class="circle blink"> </div>
-      <div class="record"> </div>
+        <div class="button">
+          <div class="circle blink"> </div>
+          <div class="record"> </div>
+        </div>
     </div>
 
         <script type="text/javascript">
@@ -591,6 +593,110 @@ console.log("inside horizon")
     };
 
     new AH();
+
+
+    var Battery;
+
+    Battery = function Battery() {
+        console.log("Loading Battery indicator plugin.");
+
+        // Instance variables
+        this.level = 100;
+        this.socket = io.connect('http://localhost:3000')
+
+
+        // Add required UI elements
+        $(".body-container").prepend('<div id="battery"><canvas class="gauge" width="50px;" height="25px;" /><span class="level">10%</span></div>');
+        this.ctx = $('#battery .gauge').get(0).getContext('2d');
+
+        // Bind to navdata events on websockets
+        var self = this;
+        this.socket.on('navdata', function(data) {
+            if (!jQuery.isEmptyObject(data)) {
+                requestAnimationFrame(function() {
+                    self.render(data);
+                });
+            }
+        });
+
+        // Initial draw
+        this.draw();
+    };
+
+    Battery.prototype.render = function(data) {
+        this.level = data.demo.batteryPercentage;
+        $("#battery .level").text(this.level + '%');
+        this.draw();
+    }
+
+    Battery.prototype.draw = function() {
+        var cw = this.ctx.canvas.width;
+        var ch = this.ctx.canvas.height;
+
+        this.ctx.clearRect(0, 0, cw, ch);
+        this.ctx.save();
+        this.ctx.strokeStyle = 'grey';
+        this.ctx.fillStyle = 'grey';
+        this.ctx.lineWidth = 2;
+        roundRect(this.ctx, 5, 1, 40, 20);
+        this.ctx.fillRect(45, 5, 4, 12);
+
+        var width = Math.floor(this.level / 100 * 35);
+        this.ctx.fillStyle = this.getColor();
+        roundRect(this.ctx, 8, 3, width, 15, 3, true, false);
+
+        this.ctx.restore();
+    }
+
+    Battery.prototype.getColor = function() {
+        if (this.level > 90) {
+            return 'lightgreen';
+        } else if (this.level > 80) {
+            return 'green';
+        } else if (this.level > 70) {
+            return 'darkgreen';
+        } else if (this.level > 60) {
+            return 'lightyellow';
+        } else if (this.level > 50) {
+            return 'yellow';
+        } else if (this.level > 40) {
+            return 'darkyellow';
+        } else if (this.level > 30) {
+            return 'lightred';
+        } else if (this.level > 20) {
+            return 'red';
+        } else {
+            return 'darkred';
+        }
+    }
+
+    function roundRect(ctx, x, y, width, height, radius, fill, stroke) {
+      if (typeof stroke == "undefined" ) {
+        stroke = true;
+      }
+      if (typeof radius === "undefined") {
+        radius = 5;
+      }
+      ctx.beginPath();
+      ctx.moveTo(x + radius, y);
+      ctx.lineTo(x + width - radius, y);
+      ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+      ctx.lineTo(x + width, y + height - radius);
+      ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+      ctx.lineTo(x + radius, y + height);
+      ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+      ctx.lineTo(x, y + radius);
+      ctx.quadraticCurveTo(x, y, x + radius, y);
+      ctx.closePath();
+      if (stroke) {
+        ctx.stroke();
+      }
+      if (fill) {
+        ctx.fill();
+      }
+    }
+
+    new Battery();
 
 
           })(window, document, jQuery);

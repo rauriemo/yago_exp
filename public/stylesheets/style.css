@@ -22,19 +22,15 @@ a {
   overflow: hidden;
 }
 
-canvas {
-  height: 100vh!important;
-  width: 100vw!important;
-  position: relative!important;
-}
-
 .debugger {
   border: 0px solid red;
 }
 
-#drone-feed {
+#drone-feed canvas{
   z-index: 1;
-
+  height: 100vh!important;
+  width: 100vw!important;
+  position: relative!important;
 }
 
 #yago-drop-down {
@@ -52,6 +48,12 @@ canvas {
   border-bottom-right-radius: 1em;
 }
 
+#horizon {
+  height: 100vh!important;
+  width: 100vw!important;
+  position: relative!important;
+}
+
 #yago-drop-down p {
   top: 25%;
   position: relative;
@@ -63,6 +65,7 @@ canvas {
 }
 
 #commands {
+  z-index: 1000;
   font-family: "Black Ops One", cursive;
   bottom: 0;
   height: 23em;
@@ -95,6 +98,7 @@ canvas {
 }
 
 #command-placeholder {
+  z-index: 1001;
   text-align: center;
   bottom: 0;
   left: 0;
@@ -106,6 +110,8 @@ canvas {
   padding-top: .5em;
   padding-bottom: .5em;
   font-weight: bolder;
+  background-color: white;
+  background: rgba(255,255,255,0.3);
 }
 
 p {
@@ -118,7 +124,8 @@ p {
 }
 
 .button {
-  position: fixed;
+  position: absolute;
+  z-index: 5000;
   border-radius: 50%;
   width: 1.5em;
   height: 1.5em;
