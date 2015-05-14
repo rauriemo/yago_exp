@@ -60,6 +60,9 @@
     66 : {
       action: 'flipRight'
     },
+    80 : {
+      action: 'clockwise'
+    },
   }
 
   var Nav = function() {
@@ -138,14 +141,23 @@
     }else if(key == 66){
       console.log("Flipping right");
       this.socket.emit("/flipRight",{cmd})
+    }else if(key == 80){
+      console.log("Taking 360 video");
+      this.socket.emit("/360video",{cmd})
+      this.socket.emit("/flightRecorder/" + "start", {})
     }
   }
 
   Nav.prototype.keyUp = function keyUp(ev) {
     console.log("keyUp!!!!!!!")
     ev.preventDefault();
-    var cmd = 'stop'
+    var key = ev.keyCode;
+    if (key == 80){
+      return
+    } else {
+      var cmd = 'stop'
       this.socket.emit("/hover", {cmd})
+    }
   }
 
 

@@ -8,9 +8,13 @@ a {
   color: #00B7FF;
 }
 
+.yago-drop-down-container {
+  text-align: center;
+}
+
 #dronestream {
   position: absolute;
-  z-index: -1;
+  /*z-index: -1;*/
   top: 0px;
   left: 0px;
   bottom: 0px;
@@ -29,11 +33,14 @@ canvas {
 }
 
 #drone-feed {
+  z-index: 1;
 
 }
 
 #yago-drop-down {
-  margin: 0 auto;
+  position: absolute;
+  z-index: 3;
+  left: 25%;
   width: 50%;
   height: 15em;
   border: 1px solid white;
