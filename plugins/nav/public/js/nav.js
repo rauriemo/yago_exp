@@ -47,19 +47,24 @@
     68: {
       action: 'right'
     },
-    // Y "flip forward"
+    // F "flip forward"
     70 : {
       action: 'flipAhead'
     },
+    // G "flip backward"
     71 : {
       action: 'flipBehind'
     },
+    // V "flip left"
     86 : {
       action: 'flipLeft'
     },
+    // B "flip right"
     66 : {
       action: 'flipRight'
     },
+    // P "panoramic picture"
+    // ** not yet implemented **
     80 : {
       action: 'clockwise'
     },
@@ -81,13 +86,24 @@
   Nav.prototype.listen = function listen() {
     console.log("listen")
     var nav = this;
+    var lastKey;
+
     $(document).keydown(function(ev) {
-      nav.keyDown(ev);
+      //this if conditional based around lastKey avoids double flips on holding a key down and allows continuous sending of all other commands
+      if ( lastKey===ev.keyCode && ev.keyCode == 70 || lastKey===ev.keyCode && ev.keyCode == 71 || lastKey===ev.keyCode && ev.keyCode == 86 || lastKey===ev.keyCode && ev.keyCode == 66 ){
+        console.log( "avoiding double jump" )
+        return;
+      }else{
+        lastKey = ev.keyCode
+        nav.keyDown( ev );
+      }
     });
 
     $(document).keyup(function(ev) {
       nav.keyUp(ev);
+      lastKey = false;
     });
+
   }
 
   nav.listen();
@@ -98,7 +114,6 @@
     var key = ev.keyCode;
     var cmd = keyMap[key];
     if (key == 84){
-      console.log("im heeeeeere");
       this.socket.emit("/takeoff", {cmd})
     }
     else if(key == 87){
@@ -149,7 +164,7 @@
   }
 
   Nav.prototype.keyUp = function keyUp(ev) {
-    console.log("keyUp!!!!!!!")
+    console.log("keyUp")
     ev.preventDefault();
     var key = ev.keyCode;
     if (key == 80){

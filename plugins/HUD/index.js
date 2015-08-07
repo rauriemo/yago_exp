@@ -1,5 +1,5 @@
 function hud(name, deps){
-console.log("inside horize index")
+console.log("inside hud index")
 
 }
 
