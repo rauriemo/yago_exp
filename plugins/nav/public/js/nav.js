@@ -87,14 +87,15 @@
     console.log("listen")
     var nav = this;
     var lastKey;
+
     $(document).keydown(function(ev) {
       //this if conditional based around lastKey avoids double flips on holding a key
-      if (lastKey===ev.keyCode && ev.keyCode == 70 || lastKey===ev.keyCode && ev.keyCode == 71 || lastKey===ev.keyCode && ev.keyCode == 86 || lastKey===ev.keyCode && ev.keyCode == 66){
-        console.log("avoiding double jump")
+      if ( lastKey===ev.keyCode && ev.keyCode == 70 || lastKey===ev.keyCode && ev.keyCode == 71 || lastKey===ev.keyCode && ev.keyCode == 86 || lastKey===ev.keyCode && ev.keyCode == 66 ){
+        console.log( "avoiding double jump" )
         return;
       }else{
         lastKey = ev.keyCode
-        nav.keyDown(ev);
+        nav.keyDown( ev );
       }
     });
 
@@ -102,6 +103,7 @@
       nav.keyUp(ev);
       lastKey = false;
     });
+
   }
 
   nav.listen();
