@@ -93,7 +93,6 @@
         console.log("avoiding double jump")
         return;
       }else{
-        console.log(ev.keyCode)
         lastKey = ev.keyCode
         nav.keyDown(ev);
       }
