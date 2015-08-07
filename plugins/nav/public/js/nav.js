@@ -47,19 +47,24 @@
     68: {
       action: 'right'
     },
-    // Y "flip forward"
+    // F "flip forward"
     70 : {
       action: 'flipAhead'
     },
+    // G "flip backward"
     71 : {
       action: 'flipBehind'
     },
+    // V "flip left"
     86 : {
       action: 'flipLeft'
     },
+    // B "flip right"
     66 : {
       action: 'flipRight'
     },
+    // P "panoramic picture"
+    // ** not yet implemented **
     80 : {
       action: 'clockwise'
     },
@@ -84,10 +89,11 @@
     var lastKey;
     $(document).keydown(function(ev) {
       //this if conditional based around lastKey avoids double flips on holding a key
-      if (lastKey===ev.keyCode && ev.keyCode == 70 || ev.keyCode == 71 || ev.keyCode == 86 || ev.keyCode == 66){
+      if (lastKey===ev.keyCode && ev.keyCode == 70 || lastKey===ev.keyCode && ev.keyCode == 71 || lastKey===ev.keyCode && ev.keyCode == 86 || lastKey===ev.keyCode && ev.keyCode == 66){
         console.log("avoiding double jump")
         return;
       }else{
+        console.log(ev.keyCode)
         lastKey = ev.keyCode
         nav.keyDown(ev);
       }
