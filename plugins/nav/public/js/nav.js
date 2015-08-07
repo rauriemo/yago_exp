@@ -89,7 +89,7 @@
     var lastKey;
 
     $(document).keydown(function(ev) {
-      //this if conditional based around lastKey avoids double flips on holding a key
+      //this if conditional based around lastKey avoids double flips on holding a key down and allows continuous sending of all other commands
       if ( lastKey===ev.keyCode && ev.keyCode == 70 || lastKey===ev.keyCode && ev.keyCode == 71 || lastKey===ev.keyCode && ev.keyCode == 86 || lastKey===ev.keyCode && ev.keyCode == 66 ){
         console.log( "avoiding double jump" )
         return;
